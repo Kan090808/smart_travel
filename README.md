@@ -5,7 +5,7 @@ Smart Travel is a Flutter application that helps users manage trips, explore map
 ## Features
 
 - **Manage Trips**: Create, edit, and delete your trips. Each trip can include a list of locations with coordinates and a customizable name.
-- **Maps**: Explore your current location or search for specific places using Google Maps. Locations can be saved or added to a trip.
+- **Maps**: Explore a world map, long-press to add markers, and search for places by address.
 - **Translate**: Translate text or speech using the Gemini API. Supports text input, text-to-speech, and speech-to-text.
 - **AI Trip Planning**: Use audio or text commands to let the app automatically create a trip for you (placeholder implementation).
 
