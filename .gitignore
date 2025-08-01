@@ -6,13 +6,50 @@
 .flutter-plugins
 .flutter-plugins-dependencies
 .idea/
+.metadata
 
 # Android/IntelliJ related
 *.iml
 .gradle/
 /local.properties
 **/generated/
+android/app/debug/
+android/app/profile/
+android/app/release/
 
 # iOS related
 Pods/
 DerivedData/
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Runner.xcworkspace/xcuserdata/
+ios/Runner/GeneratedPluginRegistrant.*
+
+# Web related
+web/
+
+# VS Code related
+.vscode/
+
+# macOS related
+.DS_Store
+
+# Analysis related
+analysis_options.yaml
+
+# Lock files (uncomment if you want to ignore)
+# pubspec.lock
+
+# Coverage
+coverage/
+
+# Symbolication related
+app.*.symbols
+
+# Test related
+test/.test_coverage.dart
+
+# Flutter/Dart build artifacts
+*.g.dart
+*.freezed.dart
+*.mocks.dart
