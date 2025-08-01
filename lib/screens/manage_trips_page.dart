@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/trip.dart';
+import 'trip_detail_page.dart';
 
 class ManageTripsPage extends StatefulWidget {
   const ManageTripsPage({super.key});
@@ -11,15 +12,60 @@ class ManageTripsPage extends StatefulWidget {
 class _ManageTripsPageState extends State<ManageTripsPage> {
   final List<Trip> _trips = [];
 
-  void _createTrip() {
-    // TODO: collect trip details from user
-    setState(() {
-      _trips.add(Trip(name: 'New Trip', locations: []));
-    });
+  void _createTrip() async {
+    final nameController = TextEditingController();
+    final result = await showDialog<String>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('New Trip'),
+          content: TextField(
+            controller: nameController,
+            decoration: const InputDecoration(labelText: 'Trip Name'),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Cancel'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                if (nameController.text.isNotEmpty) {
+                  Navigator.pop(context, nameController.text);
+                }
+              },
+              child: const Text('Create'),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (result != null && result.isNotEmpty) {
+      final trip = Trip(name: result, locations: []);
+      final updatedTrip = await Navigator.push<Trip>(
+        context,
+        MaterialPageRoute(builder: (_) => TripDetailPage(trip: trip)),
+      );
+      if (updatedTrip != null) {
+        setState(() {
+          _trips.add(updatedTrip);
+        });
+      }
+    }
   }
 
-  void _editTrip(int index) {
-    // TODO: implement edit functionality
+  void _editTrip(int index) async {
+    final trip = _trips[index];
+    final updatedTrip = await Navigator.push<Trip>(
+      context,
+      MaterialPageRoute(builder: (_) => TripDetailPage(trip: trip)),
+    );
+    if (updatedTrip != null) {
+      setState(() {
+        _trips[index] = updatedTrip;
+      });
+    }
   }
 
   void _deleteTrip(int index) {
