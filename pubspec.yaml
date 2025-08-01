@@ -1,0 +1,25 @@
+name: smart_travel
+description: A travel app to manage trips, maps, and translation.
+version: 0.1.0
+
+environment:
+  sdk: '>=2.17.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  google_maps_flutter: ^2.5.3
+  http: ^1.1.0
+  speech_to_text: ^6.0.0
+  flutter_tts: ^3.6.3
+  # Placeholder for Gemini API integration
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
